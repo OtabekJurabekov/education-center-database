@@ -1,0 +1,38 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: education_postgres
+    environment:
+      POSTGRES_USER: education_user
+      POSTGRES_PASSWORD: education_password
+      POSTGRES_DB: education_center
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U education_user -d education_center"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - education_network
+
+  adminer:
+    image: adminer:latest
+    container_name: education_adminer
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - education_network
+
+networks:
+  education_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
