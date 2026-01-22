@@ -158,7 +158,7 @@ Ensure you have the following installed:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/education-center-database.git
+   git clone https://github.com/OtabekJurabekov/education-center-database.git
    cd education-center-database
    ```
 
@@ -500,7 +500,7 @@ If you encounter any issues or have questions:
 
 1. Check the [Documentation](docs/) directory
 2. Review the [Quick Start Guide](QUICK_START.md)
-3. Open an [Issue](https://github.com/YOUR_USERNAME/education-center-database/issues)
+3. Open an [Issue](https://github.com/OtabekJurabekov/education-center-database/issues)
 
 ---
 
